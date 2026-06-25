@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BlockProp — Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.1.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#0c0e0d; --surface:#151816; --surface2:#1d211f;
+    --card:#1a1e1c; --border:#2a302d; --border2:#374039;
+    --text:#eef2f0; --text2:#9aa5a0; --text3:#6b756f;
+    --accent:#1D9E75; --accent-d:#0F6E56; --accent-l:#5DCAA5;
+    --green-bg:#10261f; --green-tx:#5DCAA5;
+    --amber-bg:#2a2110; --amber-tx:#EF9F27;
+    --red-bg:#2a1414; --red-tx:#F09595;
+    --radius:14px; --radius-s:9px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var(--text);
+    min-height:100vh; padding:24px 16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px; margin:0 auto;}
+
+  .appbar{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:20px; flex-wrap:wrap; gap:12px;
+  }
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand-logo{
+    width:42px; height:42px; border-radius:11px;
+    background:linear-gradient(135deg,#1D9E75,#0F6E56);
+    display:flex; align-items:center; justify-content:center; color:#fff; font-size:22px;
+  }
+  .brand-name{font-weight:600; font-size:19px; letter-spacing:-0.3px;}
+  .brand-sub{font-size:12px; color:var(--text2);}
+  .net{
+    display:flex; align-items:center; gap:7px; font-size:12px; color:var(--text2);
+    background:var(--surface); padding:7px 13px; border-radius:20px; border:1px solid var(--border);
+  }
+  .dot{width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px rgba(29,158,117,.18);}
+
+  .tabs{display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap;}
+  .tab{
+    flex:1; min-width:130px; padding:11px 14px; border-radius:var(--radius-s);
+    background:var(--surface); border:1px solid var(--border); color:var(--text2);
+    font-family:inherit; font-size:13.5px; font-weight:500; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; gap:7px; transition:.15s;
+  }
+  .tab:hover{border-color:var(--border2); color:var(--text);}
+  .tab.active{background:var(--accent-d); border-color:var(--accent); color:#fff;}
+
+  .panel{
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius); padding:22px; margin-bottom:18px;
+  }
+  .panel-top{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-bottom:16px; margin-bottom:18px; border-bottom:1px solid var(--border);
+  }
+  .who{display:flex; align-items:center; gap:11px;}
+  .avatar{
+    width:38px; height:38px; border-radius:10px; background:var(--surface2);
+    display:flex; align-items:center; justify-content:center; color:var(--accent-l); font-size:18px;
+  }
+  .who-name{font-weight:500; font-size:14.5px;}
+  .who-role{font-size:12px; color:var(--text2);}
+
+  .stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:11px; margin-bottom:18px;}
+  .stat{background:var(--card); border:1px solid var(--border); border-radius:var(--radius-s); padding:14px;}
+  .stat-l{font-size:12px; color:var(--text2); margin-bottom:5px;}
+  .stat-v{font-size:22px; font-weight:600; letter-spacing:-0.5px;}
+
+  .block{background:var(--card); border:1px solid var(--border); border-radius:var(--radius-s); padding:16px; margin-bottom:14px;}
+  .block-h{display:flex; align-items:center; justify-content:space-between; margin-bottom:13px; font-weight:500; font-size:14px;}
+  .block-h i{margin-right:7px; color:var(--accent-l);}
+
+  .lbl{font-size:12.5px; color:var(--text2); margin:16px 0 9px;}
+
+  .row{
+    display:flex; align-items:center; justify-content:space-between;
+    background:var(--card); border:1px solid var(--border); border-radius:var(--radius-s);
+    padding:12px 14px; margin-bottom:9px; font-size:13.5px;
+  }
+  .row i.lead{margin-right:9px; color:var(--text2);}
+  .pill{font-size:11.5px; padding:3px 10px; border-radius:7px; font-weight:500;}
+  .pill.green{background:var(--green-bg); color:var(--green-tx);}
+  .pill.amber{background:var(--amber-bg); color:var(--amber-tx);}
+  .pill.red{background:var(--red-bg); color:var(--red-tx);}
+
+  button.act{
+    width:100%; padding:12px; border-radius:var(--radius-s); cursor:pointer;
+    background:var(--accent-d); border:1px solid var(--accent); color:#fff;
+    font-family:inherit; font-size:14px; font-weight:500; transition:.15s;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+  }
+  button.act:hover{background:var(--accent);}
+  button.act:disabled{opacity:.7; cursor:default;}
+  button.ghost{
+    background:var(--surface2); border:1px solid var(--border2); color:var(--text);
+  }
+  button.ghost:hover{border-color:var(--accent); background:var(--card);}
+  .btn-grid{display:flex; gap:9px;}
+  .btn-grid button{flex:1;}
+
+  .notif{
+    background:var(--amber-bg); border:1px solid #5a4718; border-radius:var(--radius-s);
+    padding:12px 15px; margin-bottom:16px; font-size:13px; color:var(--amber-tx);
+    display:none; align-items:center; gap:9px;
+  }
+
+  .chain{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:18px;}
+  .chain-h{display:flex; align-items:center; gap:9px; margin-bottom:13px; font-weight:500; font-size:14px;}
+  .chain-h i{color:var(--accent-l);}
+  .chain-body{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text2); max-height:220px; overflow-y:auto;}
+  .chain-row{display:flex; gap:9px; padding:9px 0; border-top:1px solid var(--border); align-items:flex-start;}
+  .chain-row:first-child{border-top:none;}
+  .chain-row i{margin-top:1px; color:var(--text3);}
+  .chash{color:var(--accent-l); word-break:break-all; opacity:0; transition:opacity .3s;}
+  .empty{opacity:.5;}
+
+  .modal-bg{
+    position:fixed; inset:0; background:rgba(0,0,0,.65); backdrop-filter:blur(3px);
+    display:flex; align-items:center; justify-content:center; padding:20px; z-index:50;
+    opacity:0; pointer-events:none; transition:.2s;
+  }
+  .modal-bg.on{opacity:1; pointer-events:auto;}
+  .modal{
+    background:var(--surface); border:1px solid var(--border2); border-radius:var(--radius);
+    padding:22px; max-width:440px; width:100%; transform:translateY(10px); transition:.2s;
+  }
+  .modal-bg.on .modal{transform:none;}
+  .modal-h{display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;}
+  .modal-h span{font-weight:600; font-size:16px;}
+  .x{width:32px; height:32px; border-radius:8px; background:var(--surface2); border:1px solid var(--border); color:var(--text2); cursor:pointer; display:flex; align-items:center; justify-content:center;}
+  .x:hover{color:var(--text);}
+  .kv{display:flex; justify-content:space-between; padding:6px 0; font-size:13.5px; color:var(--text2);}
+  .kv b{color:var(--text); font-weight:500;}
+  .codebox{margin-top:12px; padding:11px; background:var(--card); border:1px solid var(--border); border-radius:8px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text2); word-break:break-all;}
+  textarea{width:100%; min-height:80px; padding:11px; background:var(--card); border:1px solid var(--border); border-radius:8px; color:var(--text); font-family:inherit; font-size:13.5px; resize:vertical; margin-bottom:12px;}
+  textarea:focus{outline:none; border-color:var(--accent);}
+  .sign-row{display:flex; justify-content:space-between; padding:9px 12px; background:var(--card); border:1px solid var(--border); border-radius:8px; margin-bottom:7px; font-size:13px;}
+
+  .hidden{display:none;}
+
+  .port-id{
+    background:var(--card); border:1px solid var(--border); border-radius:var(--radius-s);
+    padding:13px 15px; margin-bottom:16px; display:flex; align-items:center; gap:12px;
+  }
+  .port-id .ic{width:40px; height:40px; border-radius:10px; background:var(--surface2); display:flex; align-items:center; justify-content:center; color:var(--accent-l); font-size:20px;}
+  .port-addr{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--accent-l);}
+  .privacy-note{
+    font-size:12px; color:var(--text2); background:var(--green-bg); border:1px solid #1d4536;
+    border-radius:8px; padding:11px 13px; margin-top:14px; display:flex; gap:8px; align-items:flex-start;
+  }
+  .privacy-note i{color:var(--green-tx); margin-top:2px;}
+  .score-big{display:flex; align-items:baseline; gap:8px; margin-bottom:4px;}
+  .score-big .n{font-size:34px; font-weight:600; color:var(--accent-l); letter-spacing:-1px;}
+  .bar{height:7px; background:var(--surface2); border-radius:4px; overflow:hidden; margin:10px 0 4px;}
+  .bar-fill{height:100%; background:linear-gradient(90deg,#1D9E75,#5DCAA5); border-radius:4px;}
+  .foot{text-align:center; font-size:12px; color:var(--text3); margin-top:24px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="appbar">
+    <div class="brand">
+      <div class="brand-logo"><i class="ti ti-building-estate"></i></div>
+      <div>
+        <div class="brand-name">BlockProp</div>
+        <div class="brand-sub">Gestión de alquileres con anclaje on-chain</div>
+      </div>
+    </div>
+    <div class="net"><span class="dot"></span> Polygon testnet · conectado</div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-v="inq"><i class="ti ti-user"></i> Inquilino</button>
+    <button class="tab" data-v="inm"><i class="ti ti-briefcase"></i> Inmobiliaria</button>
+    <button class="tab" data-v="rep"><i class="ti ti-shield-check"></i> Reputación portable</button>
+  </div>
+
+  <div class="panel">
+    <div class="panel-top">
+      <div class="who">
+        <div class="avatar" id="av"><i class="ti ti-user"></i></div>
+        <div>
+          <div class="who-name" id="who-name">Facundo Uria</div>
+          <div class="who-role" id="who-role">Inquilino</div>
+        </div>
+      </div>
+      <div class="net" style="background:var(--card);"><i class="ti ti-lock" style="font-size:13px;"></i> Sesión segura</div>
+    </div>
+
+    <div id="view-inq">
+      <div class="stats">
+        <div class="stat"><div class="stat-l">Cuota vigente</div><div class="stat-v">$320.000</div></div>
+        <div class="stat"><div class="stat-l">Próximo venc.</div><div class="stat-v">10/07</div></div>
+        <div class="stat"><div class="stat-l">Estado</div><div class="stat-v" style="color:var(--accent-l);">Al día</div></div>
+      </div>
+
+      <div class="block">
+        <div class="block-h"><span><i class="ti ti-cash"></i>Pagar alquiler de julio</span><span style="color:var(--text2); font-size:13px;">$320.000</span></div>
+        <button class="act" id="btn-pagar">Registrar pago en pesos</button>
+      </div>
+
+      <div class="lbl">Historial de pagos · registrado on-chain</div>
+      <div id="hist-pagos"></div>
+
+      <div class="btn-grid" style="margin-top:16px;">
+        <button class="act ghost" id="btn-contrato"><i class="ti ti-file-text"></i> Ver mi contrato</button>
+        <button class="act ghost" id="btn-incidente"><i class="ti ti-alert-triangle"></i> Reportar incidente</button>
+      </div>
+    </div>
+
+    <div id="view-inm" class="hidden">
+      <div class="stats">
+        <div class="stat"><div class="stat-l">Propiedades</div><div class="stat-v">24</div></div>
+        <div class="stat"><div class="stat-l">Al día</div><div class="stat-v" style="color:var(--accent-l);">21</div></div>
+        <div class="stat"><div class="stat-l">En mora</div><div class="stat-v" style="color:var(--red-tx);">2</div></div>
+        <div class="stat"><div class="stat-l">Incidentes</div><div class="stat-v" style="color:var(--amber-tx);">1</div></div>
+      </div>
+
+      <div class="notif" id="notif"><i class="ti ti-bell"></i><span id="notif-text"></span></div>
+
+      <div class="lbl">Contratos activos</div>
+      <div id="lista-contratos"></div>
+
+      <button class="act" id="btn-nuevo" style="margin-top:16px;"><i class="ti ti-plus"></i> Generar contrato nuevo</button>
+    </div>
+
+    <div id="view-rep" class="hidden">
+      <div class="port-id">
+        <div class="ic"><i class="ti ti-id-badge-2"></i></div>
+        <div>
+          <div style="font-size:12px; color:var(--text2);">Identidad seudónima del inquilino</div>
+          <div class="port-addr">0x7a3f…e91c</div>
+        </div>
+      </div>
+
+      <div style="font-size:13px; color:var(--text2); margin-bottom:14px;">
+        Una segunda inmobiliaria <b style="color:var(--text);">consulta el historial</b> antes de alquilar. Verifica el cumplimiento a través de la cadena, no a través de la inmobiliaria anterior.
+      </div>
+
+      <div class="block">
+        <div class="block-h"><span><i class="ti ti-chart-line"></i>Score de cumplimiento</span><span class="pill green">Verificado on-chain</span></div>
+        <div class="score-big"><span class="n">94</span><span style="color:var(--text2); font-size:14px;">/ 100</span></div>
+        <div class="bar"><div class="bar-fill" style="width:94%;"></div></div>
+        <div style="font-size:12px; color:var(--text3);">Basado en 18 pagos registrados en 2 contratos anteriores</div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="stat-l">Pagos en fecha</div><div class="stat-v" style="color:var(--accent-l);">16</div></div>
+        <div class="stat"><div class="stat-l">Pagos tardíos</div><div class="stat-v" style="color:var(--amber-tx);">2</div></div>
+        <div class="stat"><div class="stat-l">Impagos</div><div class="stat-v">0</div></div>
+        <div class="stat"><div class="stat-l">Incidentes</div><div class="stat-v">1</div></div>
+      </div>
+
+      <div class="lbl">Trazas verificables (de contratos anteriores)</div>
+      <div class="row"><span><i class="ti ti-home lead"></i>Contrato A · Inmobiliaria Norte</span><span class="pill green">12 pagos OK</span></div>
+      <div class="row"><span><i class="ti ti-home lead"></i>Contrato B · Inmobiliaria Sur</span><span class="pill amber">2 tardíos</span></div>
+
+      <button class="act" id="btn-verif" style="margin-top:14px;"><i class="ti ti-circle-check"></i> Verificar integridad del historial</button>
+
+      <div class="privacy-note">
+        <i class="ti ti-shield-lock"></i>
+        <span>La inmobiliaria consultante ve el <b>comportamiento de pago</b>, no los datos personales. Nombre, DNI y domicilio nunca salen de la cadena: viven off-chain en cada inmobiliaria. Lo único compartido es la prueba de cumplimiento.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="chain">
+    <div class="chain-h"><i class="ti ti-link"></i> Registro on-chain en vivo</div>
+    <div class="chain-body" id="chain-body"><div class="empty">Esperando acciones…</div></div>
+  </div>
+
+  <div class="foot">Demo de prototipo · hashes y bloques simulados para la presentación · BlockProp 2026</div>
+</div>
+
+<div class="modal-bg" id="modal-bg"><div class="modal" id="modal"></div></div>
+
+<script>
+  const $ = id => document.getElementById(id);
+
+  function randHash(){
+    const h="0123456789abcdef"; let s="0x";
+    for(let i=0;i<16;i++) s+=h[Math.floor(Math.random()*16)];
+    return s+"…";
+  }
+
+  function chainLog(action){
+    const box = $('chain-body');
+    const first = box.querySelector('.empty');
+    if(first) box.innerHTML="";
+    const row = document.createElement('div');
+    row.className="chain-row";
+    const hash = randHash();
+    row.innerHTML = '<i class="ti ti-clock"></i><div><div>'+action+'</div><div class="chash">hash '+hash+' · pendiente…</div></div>';
+    box.prepend(row);
+    const hd = row.querySelector('.chash');
+    setTimeout(()=>{ hd.style.opacity="1"; },120);
+    setTimeout(()=>{
+      hd.innerHTML='hash '+hash+' · <span style="color:var(--accent-l);"><i class="ti ti-check"></i> confirmado · bloque #'+(4821000+Math.floor(Math.random()*900))+'</span>';
+    },1300);
+  }
+
+  let pagos = [
+    {mes:'Junio 2026', e:'En fecha', c:'green'},
+    {mes:'Mayo 2026', e:'En fecha', c:'green'},
+    {mes:'Abril 2026', e:'Tardío', c:'amber'},
+  ];
+  function renderPagos(){
+    $('hist-pagos').innerHTML = pagos.map(p =>
+      '<div class="row"><span><i class="ti ti-receipt lead"></i>'+p.mes+'</span><span class="pill '+p.c+'">'+p.e+'</span></div>'
+    ).join('');
+  }
+  renderPagos();
+
+  const contratos = [
+    {dir:'Av. San Martín 1240', inq:'Facundo Uria', e:'Vigente', c:'green'},
+    {dir:'Belgrano 455', inq:'M. Gómez', e:'Vigente', c:'green'},
+    {dir:'Las Heras 890', inq:'R. Díaz', e:'En mora', c:'red'},
+  ];
+  $('lista-contratos').innerHTML = contratos.map(c =>
+    '<div class="row"><span><i class="ti ti-home lead"></i>'+c.dir+' · '+c.inq+'</span><span class="pill '+c.e.replace('Vigente','green').replace('En mora','red')+'">'+c.e+'</span></div>'
+  ).join('');
+
+  function openModal(title, body){
+    $('modal').innerHTML =
+      '<div class="modal-h"><span>'+title+'</span><button class="x" onclick="closeModal()"><i class="ti ti-x"></i></button></div>'+body;
+    $('modal-bg').classList.add('on');
+  }
+  function closeModal(){ $('modal-bg').classList.remove('on'); }
+  $('modal-bg').addEventListener('click', e=>{ if(e.target===$('modal-bg')) closeModal(); });
+  window.closeModal = closeModal;
+
+  $('btn-pagar').addEventListener('click', ()=>{
+    const b=$('btn-pagar');
+    b.innerHTML='<i class="ti ti-loader-2"></i> Confirmando con la pasarela…'; b.disabled=true;
+    chainLog('Pago julio registrado · $320.000');
+    setTimeout(()=>{
+      pagos.unshift({mes:'Julio 2026', e:'En fecha', c:'green'}); renderPagos();
+      b.innerHTML='<i class="ti ti-check"></i> Pago de julio confirmado';
+      setTimeout(()=>{ b.innerHTML='Registrar pago en pesos'; b.disabled=false; },2200);
+    },1500);
+  });
+
+  $('btn-contrato').addEventListener('click', ()=>{
+    chainLog('Verificación de integridad del contrato');
+    openModal('Contrato de alquiler',
+      '<div class="kv"><span>Inmueble</span><b>Av. San Martín 1240</b></div>'+
+      '<div class="kv"><span>Monto inicial</span><b>$300.000</b></div>'+
+      '<div class="kv"><span>Ajuste pactado</span><b>8% trimestral</b></div>'+
+      '<div class="kv"><span>Firmas</span><b style="color:var(--accent-l);">3 / 3</b></div>'+
+      '<div class="codebox">hash on-chain: '+randHash()+' &nbsp;<span style="color:var(--accent-l);">&#10003; íntegro</span></div>');
+  });
+
+  $('btn-incidente').addEventListener('click', ()=>{
+    openModal('Reportar incidente',
+      '<textarea placeholder="Describí el incidente (ej: humedad en el techo del living)"></textarea>'+
+      '<button class="act" id="env-inc"><i class="ti ti-upload"></i> Enviar y notificar a inmobiliaria</button>');
+    $('env-inc').addEventListener('click', ()=>{
+      chainLog('Incidente reportado por inquilino');
+      closeModal();
+      $('notif').style.display='flex';
+      $('notif-text').textContent='Nuevo incidente en Av. San Martín 1240, reportado por el inquilino.';
+    });
+  });
+
+  $('btn-nuevo').addEventListener('click', ()=>{
+    chainLog('Contrato anterior → estado deshabilitado');
+    setTimeout(()=> chainLog('Contrato nuevo generado · espera 3 firmas'), 700);
+    openModal('Generar contrato nuevo',
+      '<div style="font-size:13.5px; color:var(--text2); margin-bottom:14px;">El contrato anterior queda <b style="color:var(--text);">deshabilitado</b> on-chain (no se borra). El nuevo entra en vigencia con las tres firmas.</div>'+
+      '<div class="sign-row"><span>Inmobiliaria</span><span style="color:var(--accent-l);">Firmado &#10003;</span></div>'+
+      '<div class="sign-row"><span>Propietario</span><span style="color:var(--accent-l);">Firmado &#10003;</span></div>'+
+      '<div class="sign-row"><span>Inquilino</span><span style="color:var(--amber-tx);">Pendiente</span></div>');
+  });
+
+  document.addEventListener('click', e=>{
+    if(e.target.closest('#btn-verif')){
+      chainLog('Recálculo de hashes del historial · OK');
+      const b=$('btn-verif');
+      b.innerHTML='<i class="ti ti-check"></i> Historial íntegro · sin alteraciones';
+      setTimeout(()=>{ b.innerHTML='<i class="ti ti-circle-check"></i> Verificar integridad del historial'; },2500);
+    }
+  });
+
+  const roles = {
+    inq:{name:'Facundo Uria', role:'Inquilino', icon:'ti-user'},
+    inm:{name:'Grupo Mendoza Propiedades', role:'Inmobiliaria', icon:'ti-briefcase'},
+    rep:{name:'Inmobiliaria Oeste', role:'Consultando reputación de un postulante', icon:'ti-shield-check'},
+  };
+  function setView(v){
+    ['inq','inm','rep'].forEach(x=>{
+      $('view-'+x).classList.toggle('hidden', x!==v);
+      document.querySelector('.tab[data-v="'+x+'"]').classList.toggle('active', x===v);
+    });
+    $('who-name').textContent=roles[v].name;
+    $('who-role').textContent=roles[v].role;
+    $('av').innerHTML='<i class="ti '+roles[v].icon+'"></i>';
+  }
+  document.querySelectorAll('.tab').forEach(t=> t.addEventListener('click', ()=>setView(t.dataset.v)));
+  setView('inq');
+</script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,94 +27,45 @@
     -webkit-font-smoothing:antialiased;
   }
   .wrap{max-width:920px; margin:0 auto;}
-
-  .appbar{
-    display:flex; align-items:center; justify-content:space-between;
-    margin-bottom:20px; flex-wrap:wrap; gap:12px;
-  }
+  .appbar{display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; flex-wrap:wrap; gap:12px;}
   .brand{display:flex; align-items:center; gap:12px;}
-  .brand-logo{
-    width:42px; height:42px; border-radius:11px;
-    background:linear-gradient(135deg,#1D9E75,#0F6E56);
-    display:flex; align-items:center; justify-content:center; color:#fff; font-size:22px;
-  }
+  .brand-logo{width:42px; height:42px; border-radius:11px; background:linear-gradient(135deg,#1D9E75,#0F6E56); display:flex; align-items:center; justify-content:center; color:#fff; font-size:22px;}
   .brand-name{font-weight:600; font-size:19px; letter-spacing:-0.3px;}
   .brand-sub{font-size:12px; color:var(--text2);}
-  .net{
-    display:flex; align-items:center; gap:7px; font-size:12px; color:var(--text2);
-    background:var(--surface); padding:7px 13px; border-radius:20px; border:1px solid var(--border);
-  }
+  .net{display:flex; align-items:center; gap:7px; font-size:12px; color:var(--text2); background:var(--surface); padding:7px 13px; border-radius:20px; border:1px solid var(--border);}
   .dot{width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px rgba(29,158,117,.18);}
-
   .tabs{display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap;}
-  .tab{
-    flex:1; min-width:130px; padding:11px 14px; border-radius:var(--radius-s);
-    background:var(--surface); border:1px solid var(--border); color:var(--text2);
-    font-family:inherit; font-size:13.5px; font-weight:500; cursor:pointer;
-    display:flex; align-items:center; justify-content:center; gap:7px; transition:.15s;
-  }
+  .tab{flex:1; min-width:130px; padding:11px 14px; border-radius:var(--radius-s); background:var(--surface); border:1px solid var(--border); color:var(--text2); font-family:inherit; font-size:13.5px; font-weight:500; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:7px; transition:.15s;}
   .tab:hover{border-color:var(--border2); color:var(--text);}
   .tab.active{background:var(--accent-d); border-color:var(--accent); color:#fff;}
-
-  .panel{
-    background:var(--surface); border:1px solid var(--border);
-    border-radius:var(--radius); padding:22px; margin-bottom:18px;
-  }
-  .panel-top{
-    display:flex; align-items:center; justify-content:space-between;
-    padding-bottom:16px; margin-bottom:18px; border-bottom:1px solid var(--border);
-  }
+  .panel{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px; margin-bottom:18px;}
+  .panel-top{display:flex; align-items:center; justify-content:space-between; padding-bottom:16px; margin-bottom:18px; border-bottom:1px solid var(--border);}
   .who{display:flex; align-items:center; gap:11px;}
-  .avatar{
-    width:38px; height:38px; border-radius:10px; background:var(--surface2);
-    display:flex; align-items:center; justify-content:center; color:var(--accent-l); font-size:18px;
-  }
+  .avatar{width:38px; height:38px; border-radius:10px; background:var(--surface2); display:flex; align-items:center; justify-content:center; color:var(--accent-l); font-size:18px;}
   .who-name{font-weight:500; font-size:14.5px;}
   .who-role{font-size:12px; color:var(--text2);}
-
   .stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:11px; margin-bottom:18px;}
   .stat{background:var(--card); border:1px solid var(--border); border-radius:var(--radius-s); padding:14px;}
   .stat-l{font-size:12px; color:var(--text2); margin-bottom:5px;}
   .stat-v{font-size:22px; font-weight:600; letter-spacing:-0.5px;}
-
   .block{background:var(--card); border:1px solid var(--border); border-radius:var(--radius-s); padding:16px; margin-bottom:14px;}
   .block-h{display:flex; align-items:center; justify-content:space-between; margin-bottom:13px; font-weight:500; font-size:14px;}
   .block-h i{margin-right:7px; color:var(--accent-l);}
-
   .lbl{font-size:12.5px; color:var(--text2); margin:16px 0 9px;}
-
-  .row{
-    display:flex; align-items:center; justify-content:space-between;
-    background:var(--card); border:1px solid var(--border); border-radius:var(--radius-s);
-    padding:12px 14px; margin-bottom:9px; font-size:13.5px;
-  }
+  .row{display:flex; align-items:center; justify-content:space-between; background:var(--card); border:1px solid var(--border); border-radius:var(--radius-s); padding:12px 14px; margin-bottom:9px; font-size:13.5px;}
   .row i.lead{margin-right:9px; color:var(--text2);}
   .pill{font-size:11.5px; padding:3px 10px; border-radius:7px; font-weight:500;}
   .pill.green{background:var(--green-bg); color:var(--green-tx);}
   .pill.amber{background:var(--amber-bg); color:var(--amber-tx);}
   .pill.red{background:var(--red-bg); color:var(--red-tx);}
-
-  button.act{
-    width:100%; padding:12px; border-radius:var(--radius-s); cursor:pointer;
-    background:var(--accent-d); border:1px solid var(--accent); color:#fff;
-    font-family:inherit; font-size:14px; font-weight:500; transition:.15s;
-    display:flex; align-items:center; justify-content:center; gap:8px;
-  }
+  button.act{width:100%; padding:12px; border-radius:var(--radius-s); cursor:pointer; background:var(--accent-d); border:1px solid var(--accent); color:#fff; font-family:inherit; font-size:14px; font-weight:500; transition:.15s; display:flex; align-items:center; justify-content:center; gap:8px;}
   button.act:hover{background:var(--accent);}
   button.act:disabled{opacity:.7; cursor:default;}
-  button.ghost{
-    background:var(--surface2); border:1px solid var(--border2); color:var(--text);
-  }
+  button.ghost{background:var(--surface2); border:1px solid var(--border2); color:var(--text);}
   button.ghost:hover{border-color:var(--accent); background:var(--card);}
   .btn-grid{display:flex; gap:9px;}
   .btn-grid button{flex:1;}
-
-  .notif{
-    background:var(--amber-bg); border:1px solid #5a4718; border-radius:var(--radius-s);
-    padding:12px 15px; margin-bottom:16px; font-size:13px; color:var(--amber-tx);
-    display:none; align-items:center; gap:9px;
-  }
-
+  .notif{background:var(--amber-bg); border:1px solid #5a4718; border-radius:var(--radius-s); padding:12px 15px; margin-bottom:16px; font-size:13px; color:var(--amber-tx); display:none; align-items:center; gap:9px;}
   .chain{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:18px;}
   .chain-h{display:flex; align-items:center; gap:9px; margin-bottom:13px; font-weight:500; font-size:14px;}
   .chain-h i{color:var(--accent-l);}
@@ -123,17 +75,9 @@
   .chain-row i{margin-top:1px; color:var(--text3);}
   .chash{color:var(--accent-l); word-break:break-all; opacity:0; transition:opacity .3s;}
   .empty{opacity:.5;}
-
-  .modal-bg{
-    position:fixed; inset:0; background:rgba(0,0,0,.65); backdrop-filter:blur(3px);
-    display:flex; align-items:center; justify-content:center; padding:20px; z-index:50;
-    opacity:0; pointer-events:none; transition:.2s;
-  }
+  .modal-bg{position:fixed; inset:0; background:rgba(0,0,0,.65); backdrop-filter:blur(3px); display:flex; align-items:center; justify-content:center; padding:20px; z-index:50; opacity:0; pointer-events:none; transition:.2s;}
   .modal-bg.on{opacity:1; pointer-events:auto;}
-  .modal{
-    background:var(--surface); border:1px solid var(--border2); border-radius:var(--radius);
-    padding:22px; max-width:440px; width:100%; transform:translateY(10px); transition:.2s;
-  }
+  .modal{background:var(--surface); border:1px solid var(--border2); border-radius:var(--radius); padding:22px; max-width:500px; width:100%; transform:translateY(10px); transition:.2s; max-height:90vh; overflow-y:auto;}
   .modal-bg.on .modal{transform:none;}
   .modal-h{display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;}
   .modal-h span{font-weight:600; font-size:16px;}
@@ -145,25 +89,65 @@
   textarea{width:100%; min-height:80px; padding:11px; background:var(--card); border:1px solid var(--border); border-radius:8px; color:var(--text); font-family:inherit; font-size:13.5px; resize:vertical; margin-bottom:12px;}
   textarea:focus{outline:none; border-color:var(--accent);}
   .sign-row{display:flex; justify-content:space-between; padding:9px 12px; background:var(--card); border:1px solid var(--border); border-radius:8px; margin-bottom:7px; font-size:13px;}
-
   .hidden{display:none;}
-
-  .port-id{
-    background:var(--card); border:1px solid var(--border); border-radius:var(--radius-s);
-    padding:13px 15px; margin-bottom:16px; display:flex; align-items:center; gap:12px;
-  }
+  .port-id{background:var(--card); border:1px solid var(--border); border-radius:var(--radius-s); padding:13px 15px; margin-bottom:16px; display:flex; align-items:center; gap:12px;}
   .port-id .ic{width:40px; height:40px; border-radius:10px; background:var(--surface2); display:flex; align-items:center; justify-content:center; color:var(--accent-l); font-size:20px;}
   .port-addr{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--accent-l);}
-  .privacy-note{
-    font-size:12px; color:var(--text2); background:var(--green-bg); border:1px solid #1d4536;
-    border-radius:8px; padding:11px 13px; margin-top:14px; display:flex; gap:8px; align-items:flex-start;
-  }
+  .privacy-note{font-size:12px; color:var(--text2); background:var(--green-bg); border:1px solid #1d4536; border-radius:8px; padding:11px 13px; margin-top:14px; display:flex; gap:8px; align-items:flex-start;}
   .privacy-note i{color:var(--green-tx); margin-top:2px;}
   .score-big{display:flex; align-items:baseline; gap:8px; margin-bottom:4px;}
   .score-big .n{font-size:34px; font-weight:600; color:var(--accent-l); letter-spacing:-1px;}
   .bar{height:7px; background:var(--surface2); border-radius:4px; overflow:hidden; margin:10px 0 4px;}
   .bar-fill{height:100%; background:linear-gradient(90deg,#1D9E75,#5DCAA5); border-radius:4px;}
   .foot{text-align:center; font-size:12px; color:var(--text3); margin-top:24px;}
+
+  /* ── MEJORA 1: Protocolo 5 pasos ── */
+  .protocolo-wrap{margin-top:4px;}
+  .protocolo-header{font-size:13px; color:var(--text2); margin-bottom:14px; padding:10px 13px; background:var(--green-bg); border:1px solid #1d4536; border-radius:var(--radius-s);}
+  .protocolo-header b{color:var(--accent-l);}
+  .step-list{display:flex; flex-direction:column; gap:0;}
+  .step{display:flex; gap:12px; position:relative;}
+  .step:not(:last-child) .step-line{position:absolute; left:17px; top:36px; bottom:0; width:2px; background:var(--border2); z-index:0;}
+  .step-num{width:34px; height:34px; border-radius:50%; background:var(--surface2); border:2px solid var(--border2); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:600; color:var(--text2); flex-shrink:0; z-index:1; transition:.3s;}
+  .step.done .step-num{background:var(--green-bg); border-color:var(--accent); color:var(--accent-l);}
+  .step.active .step-num{background:var(--accent-d); border-color:var(--accent-l); color:#fff; box-shadow:0 0 0 4px rgba(29,158,117,.18);}
+  .step-body{padding:6px 0 20px; flex:1;}
+  .step-title{font-size:13.5px; font-weight:500; color:var(--text2); transition:.3s;}
+  .step.done .step-title{color:var(--text);}
+  .step.active .step-title{color:var(--accent-l);}
+  .step-desc{font-size:12px; color:var(--text3); margin-top:3px; line-height:1.5;}
+  .step.active .step-desc{color:var(--text2);}
+  .step-action{margin-top:10px;}
+  .step-btn{padding:8px 14px; border-radius:var(--radius-s); cursor:pointer; background:var(--accent-d); border:1px solid var(--accent); color:#fff; font-family:inherit; font-size:13px; font-weight:500; transition:.15s; display:inline-flex; align-items:center; gap:7px;}
+  .step-btn:hover{background:var(--accent);}
+  .step-btn:disabled{opacity:.6; cursor:default;}
+  .step-badge{display:inline-flex; align-items:center; gap:5px; font-size:11.5px; padding:3px 9px; border-radius:6px; background:var(--green-bg); color:var(--green-tx); margin-top:8px;}
+
+  /* ── MEJORA 2: 5 controles de validación ── */
+  .val-wrap{margin-top:4px;}
+  .val-header{font-size:13px; color:var(--text2); margin-bottom:14px; padding:10px 13px; background:var(--amber-bg); border:1px solid #5a4718; border-radius:var(--radius-s);}
+  .val-header b{color:var(--amber-tx);}
+  .val-grid{display:flex; flex-direction:column; gap:8px;}
+  .val-item{background:var(--card); border:1px solid var(--border); border-radius:var(--radius-s); padding:12px 14px; display:flex; align-items:flex-start; gap:12px; transition:.3s;}
+  .val-item.checking{border-color:var(--amber-tx); background:var(--amber-bg);}
+  .val-item.ok{border-color:var(--accent); background:var(--green-bg);}
+  .val-item.fail{border-color:var(--red-tx); background:var(--red-bg);}
+  .val-icon{width:30px; height:30px; border-radius:8px; background:var(--surface2); display:flex; align-items:center; justify-content:center; font-size:16px; color:var(--text2); flex-shrink:0; transition:.3s;}
+  .val-item.checking .val-icon{background:var(--amber-bg); color:var(--amber-tx);}
+  .val-item.ok .val-icon{background:var(--green-bg); color:var(--accent-l);}
+  .val-item.fail .val-icon{background:var(--red-bg); color:var(--red-tx);}
+  .val-info{flex:1;}
+  .val-name{font-size:13.5px; font-weight:500; color:var(--text2); transition:.3s;}
+  .val-item.ok .val-name{color:var(--text);}
+  .val-desc{font-size:11.5px; color:var(--text3); margin-top:2px; line-height:1.5;}
+  .val-status{font-size:11.5px; font-weight:500; flex-shrink:0; padding:3px 9px; border-radius:6px;}
+  .val-status.idle{background:var(--surface2); color:var(--text3);}
+  .val-status.checking{background:var(--amber-bg); color:var(--amber-tx);}
+  .val-status.ok{background:var(--green-bg); color:var(--green-tx);}
+  .val-status.fail{background:var(--red-bg); color:var(--red-tx);}
+  .val-result{margin-top:10px; padding:10px 13px; background:var(--surface2); border:1px solid var(--border2); border-radius:var(--radius-s); font-size:12.5px; color:var(--text); display:none;}
+  .val-result.ok{background:var(--green-bg); border-color:var(--accent); color:var(--accent-l); display:flex; align-items:center; gap:8px;}
+  .val-result.fail{background:var(--red-bg); border-color:var(--red-tx); color:var(--red-tx); display:flex; align-items:center; gap:8px;}
 </style>
 </head>
 <body>
@@ -198,27 +182,26 @@
       <div class="net" style="background:var(--card);"><i class="ti ti-lock" style="font-size:13px;"></i> Sesión segura</div>
     </div>
 
+    <!-- VISTA INQUILINO -->
     <div id="view-inq">
       <div class="stats">
         <div class="stat"><div class="stat-l">Cuota vigente</div><div class="stat-v">$320.000</div></div>
         <div class="stat"><div class="stat-l">Próximo venc.</div><div class="stat-v">10/07</div></div>
         <div class="stat"><div class="stat-l">Estado</div><div class="stat-v" style="color:var(--accent-l);">Al día</div></div>
       </div>
-
       <div class="block">
         <div class="block-h"><span><i class="ti ti-cash"></i>Pagar alquiler de julio</span><span style="color:var(--text2); font-size:13px;">$320.000</span></div>
         <button class="act" id="btn-pagar">Registrar pago en pesos</button>
       </div>
-
       <div class="lbl">Historial de pagos · registrado on-chain</div>
       <div id="hist-pagos"></div>
-
       <div class="btn-grid" style="margin-top:16px;">
         <button class="act ghost" id="btn-contrato"><i class="ti ti-file-text"></i> Ver mi contrato</button>
         <button class="act ghost" id="btn-incidente"><i class="ti ti-alert-triangle"></i> Reportar incidente</button>
       </div>
     </div>
 
+    <!-- VISTA INMOBILIARIA -->
     <div id="view-inm" class="hidden">
       <div class="stats">
         <div class="stat"><div class="stat-l">Propiedades</div><div class="stat-v">24</div></div>
@@ -226,15 +209,13 @@
         <div class="stat"><div class="stat-l">En mora</div><div class="stat-v" style="color:var(--red-tx);">2</div></div>
         <div class="stat"><div class="stat-l">Incidentes</div><div class="stat-v" style="color:var(--amber-tx);">1</div></div>
       </div>
-
       <div class="notif" id="notif"><i class="ti ti-bell"></i><span id="notif-text"></span></div>
-
       <div class="lbl">Contratos activos</div>
       <div id="lista-contratos"></div>
-
       <button class="act" id="btn-nuevo" style="margin-top:16px;"><i class="ti ti-plus"></i> Generar contrato nuevo</button>
     </div>
 
+    <!-- VISTA REPUTACIÓN -->
     <div id="view-rep" class="hidden">
       <div class="port-id">
         <div class="ic"><i class="ti ti-id-badge-2"></i></div>
@@ -243,31 +224,25 @@
           <div class="port-addr">0x7a3f…e91c</div>
         </div>
       </div>
-
       <div style="font-size:13px; color:var(--text2); margin-bottom:14px;">
         Una segunda inmobiliaria <b style="color:var(--text);">consulta el historial</b> antes de alquilar. Verifica el cumplimiento a través de la cadena, no a través de la inmobiliaria anterior.
       </div>
-
       <div class="block">
         <div class="block-h"><span><i class="ti ti-chart-line"></i>Score de cumplimiento</span><span class="pill green">Verificado on-chain</span></div>
         <div class="score-big"><span class="n">94</span><span style="color:var(--text2); font-size:14px;">/ 100</span></div>
         <div class="bar"><div class="bar-fill" style="width:94%;"></div></div>
         <div style="font-size:12px; color:var(--text3);">Basado en 18 pagos registrados en 2 contratos anteriores</div>
       </div>
-
       <div class="stats">
         <div class="stat"><div class="stat-l">Pagos en fecha</div><div class="stat-v" style="color:var(--accent-l);">16</div></div>
         <div class="stat"><div class="stat-l">Pagos tardíos</div><div class="stat-v" style="color:var(--amber-tx);">2</div></div>
         <div class="stat"><div class="stat-l">Impagos</div><div class="stat-v">0</div></div>
         <div class="stat"><div class="stat-l">Incidentes</div><div class="stat-v">1</div></div>
       </div>
-
       <div class="lbl">Trazas verificables (de contratos anteriores)</div>
       <div class="row"><span><i class="ti ti-home lead"></i>Contrato A · Inmobiliaria Norte</span><span class="pill green">12 pagos OK</span></div>
       <div class="row"><span><i class="ti ti-home lead"></i>Contrato B · Inmobiliaria Sur</span><span class="pill amber">2 tardíos</span></div>
-
       <button class="act" id="btn-verif" style="margin-top:14px;"><i class="ti ti-circle-check"></i> Verificar integridad del historial</button>
-
       <div class="privacy-note">
         <i class="ti ti-shield-lock"></i>
         <span>La inmobiliaria consultante ve el <b>comportamiento de pago</b>, no los datos personales. Nombre, DNI y domicilio nunca salen de la cadena: viven off-chain en cada inmobiliaria. Lo único compartido es la prueba de cumplimiento.</span>
@@ -283,6 +258,7 @@
   <div class="foot">Demo de prototipo · hashes y bloques simulados para la presentación · BlockProp 2026</div>
 </div>
 
+<!-- MODAL -->
 <div class="modal-bg" id="modal-bg"><div class="modal" id="modal"></div></div>
 
 <script>
@@ -322,13 +298,12 @@
   }
   renderPagos();
 
-  const contratos = [
+  $('lista-contratos').innerHTML = [
     {dir:'Av. San Martín 1240', inq:'Facundo Uria', e:'Vigente', c:'green'},
     {dir:'Belgrano 455', inq:'M. Gómez', e:'Vigente', c:'green'},
     {dir:'Las Heras 890', inq:'R. Díaz', e:'En mora', c:'red'},
-  ];
-  $('lista-contratos').innerHTML = contratos.map(c =>
-    '<div class="row"><span><i class="ti ti-home lead"></i>'+c.dir+' · '+c.inq+'</span><span class="pill '+c.e.replace('Vigente','green').replace('En mora','red')+'">'+c.e+'</span></div>'
+  ].map(c =>
+    '<div class="row"><span><i class="ti ti-home lead"></i>'+c.dir+' · '+c.inq+'</span><span class="pill '+c.c+'">'+c.e+'</span></div>'
   ).join('');
 
   function openModal(title, body){
@@ -373,14 +348,244 @@
     });
   });
 
+  // ════════════════════════════════════════════════════════
+  // MEJORA 1 — Protocolo de 5 pasos para contrato digital
+  // ════════════════════════════════════════════════════════
+
+  const PASOS = [
+    {
+      icon:'ti-id-badge-2',
+      titulo:'Validación de identidad',
+      desc:'Cruce de DNI con RENAPER. Se ata la persona física al usuario digital antes de redactar el contrato.',
+      btn:'Verificar con RENAPER',
+      log:'Validación RENAPER · DNI confirmado'
+    },
+    {
+      icon:'ti-file-description',
+      titulo:'Generación del documento',
+      desc:'Se consolidan precio, plazos e inmueble en un PDF inmutable. Sin campos vacíos ni cláusulas opcionales.',
+      btn:'Generar PDF del contrato',
+      log:'PDF de contrato generado · inmutable'
+    },
+    {
+      icon:'ti-signature',
+      titulo:'Firma segura con doble factor',
+      desc:'Cada parte firma. El sistema registra timestamp, IP y envía un SMS de confirmación (2FA) para certificar intención.',
+      btn:'Firmar con código SMS',
+      log:'Firma confirmada · 2FA · timestamp registrado'
+    },
+    {
+      icon:'ti-fingerprint',
+      titulo:'Cálculo del hash SHA-256',
+      desc:'Al PDF final se le calcula su huella criptográfica única. Cualquier modificación posterior cambia el hash por completo.',
+      btn:'Calcular hash del PDF',
+      log:'Hash SHA-256 calculado · documento huella registrada'
+    },
+    {
+      icon:'ti-brand-blockchain',
+      titulo:'Registro en Polygon',
+      desc:'Solo el hash se publica en la red. La blockchain no lee el contrato: actúa como notario inmutable que certifica existencia y momento exacto.',
+      btn:'Anclar hash en Polygon',
+      log:'Hash anclado en Polygon · contrato certificado on-chain'
+    }
+  ];
+
+  function buildProtocolo(){
+    let html = `<div class="protocolo-wrap">
+      <div class="protocolo-header"><b>Mejora 1 — Protocolo de aceptación digital</b><br>
+      El contrato recorre 5 pasos antes de ser válido. Hacé clic en cada botón para simular el flujo.</div>
+      <div class="step-list" id="step-list">`;
+
+    PASOS.forEach((p,i)=>{
+      html += `<div class="step ${i===0?'active':''}" id="paso-${i}">
+        <div class="step-line"></div>
+        <div class="step-num" id="snum-${i}">${i+1}</div>
+        <div class="step-body">
+          <div class="step-title"><i class="ti ${p.icon}" style="margin-right:6px;color:inherit;"></i>${p.titulo}</div>
+          <div class="step-desc">${p.desc}</div>
+          <div class="step-action" id="sact-${i}">
+            ${i===0 ? `<button class="step-btn" id="sbtn-${i}"><i class="ti ti-player-play"></i> ${p.btn}</button>` : ''}
+          </div>
+        </div>
+      </div>`;
+    });
+
+    html += `</div>
+      <div id="protocolo-done" class="hidden" style="margin-top:14px;">
+        <div class="privacy-note"><i class="ti ti-circle-check"></i>
+          <span><b>Protocolo completado.</b> El contrato tiene validez digital: identidad verificada, PDF inmutable, firmas certificadas, hash calculado y existencia registrada en blockchain.</span>
+        </div>
+      </div>
+    </div>`;
+    return html;
+  }
+
+  let pasoActual = 0;
+
+  function activarBtnPaso(i){
+    const act = $('sact-'+i);
+    if(!act) return;
+    act.innerHTML = `<button class="step-btn" id="sbtn-${i}"><i class="ti ti-player-play"></i> ${PASOS[i].btn}</button>`;
+    $('sbtn-'+i).addEventListener('click', ()=> ejecutarPaso(i));
+  }
+
+  function ejecutarPaso(i){
+    const btn = $('sbtn-'+i);
+    if(!btn) return;
+    btn.disabled=true;
+    btn.innerHTML=`<i class="ti ti-loader-2"></i> Procesando…`;
+    chainLog(PASOS[i].log);
+
+    setTimeout(()=>{
+      const pasoEl = $('paso-'+i);
+      pasoEl.classList.remove('active');
+      pasoEl.classList.add('done');
+      $('snum-'+i).innerHTML='<i class="ti ti-check" style="font-size:14px;"></i>';
+      const act = $('sact-'+i);
+      act.innerHTML=`<div class="step-badge"><i class="ti ti-check"></i> Completado</div>`;
+
+      const sig = i+1;
+      if(sig < PASOS.length){
+        const sigEl = $('paso-'+sig);
+        sigEl.classList.add('active');
+        activarBtnPaso(sig);
+      } else {
+        $('protocolo-done').classList.remove('hidden');
+      }
+    }, 1400);
+  }
+
+  // ════════════════════════════════════════════════════════
+  // MEJORA 2 — 5 controles de validación antes de la BBDD
+  // ════════════════════════════════════════════════════════
+
+  const CONTROLES = [
+    {
+      icon:'ti-checklist',
+      nombre:'Completitud legal',
+      desc:'Verifica que el PDF contenga domicilio, precio, plazos y todas las cláusulas obligatorias de la Ley de Alquileres.',
+      delay:600, ok:true
+    },
+    {
+      icon:'ti-shield-bolt',
+      nombre:'Seguridad informática',
+      desc:'Analiza que sea un PDF puro sin scripts maliciosos, macros ocultos ni exploits embebidos.',
+      delay:1100, ok:true
+    },
+    {
+      icon:'ti-tags',
+      nombre:'Metadatos de trazabilidad',
+      desc:'Registra qué agente generó el borrador, desde qué equipo y a qué hora exacta.',
+      delay:1700, ok:true
+    },
+    {
+      icon:'ti-lock',
+      nombre:'Privacidad y separación de datos',
+      desc:'DNI y nombre quedan encriptados off-chain. Solo el hash transaccional viaja a la blockchain (Ley 25.326).',
+      delay:2200, ok:true
+    },
+    {
+      icon:'ti-hand-click',
+      nombre:'Aceptación explícita de todas las partes',
+      desc:'El contrato no se activa hasta que cada parte registre su clic en "Acepto los términos y condiciones".',
+      delay:2800, ok:true
+    }
+  ];
+
+  function buildValidacion(){
+    let html = `<div class="val-wrap">
+      <div class="val-header"><b>Mejora 2 — Controles previos a la base de datos</b><br>
+      5 filtros que el documento debe pasar antes de ser persistido. Hacé clic en "Ejecutar validación" para ver el flujo.</div>
+      <div class="val-grid" id="val-grid">`;
+
+    CONTROLES.forEach((c,i)=>{
+      html += `<div class="val-item" id="vitem-${i}">
+        <div class="val-icon" id="vicon-${i}"><i class="ti ${c.icon}"></i></div>
+        <div class="val-info">
+          <div class="val-name">${c.nombre}</div>
+          <div class="val-desc">${c.desc}</div>
+        </div>
+        <div class="val-status idle" id="vstatus-${i}">Pendiente</div>
+      </div>`;
+    });
+
+    html += `</div>
+      <button class="act" id="btn-validar" style="margin-top:14px;"><i class="ti ti-database-check"></i> Ejecutar validación</button>
+      <div id="val-result-final" style="margin-top:12px; display:none;"></div>
+    </div>`;
+    return html;
+  }
+
+  function ejecutarValidacion(){
+    const btn = $('btn-validar');
+    btn.disabled=true;
+    btn.innerHTML='<i class="ti ti-loader-2"></i> Validando documento…';
+
+    CONTROLES.forEach((c,i)=>{
+      setTimeout(()=>{
+        const item=$('vitem-'+i), icon=$('vicon-'+i), status=$('vstatus-'+i);
+        item.classList.add('checking');
+        status.className='val-status checking'; status.textContent='Verificando…';
+        icon.innerHTML='<i class="ti ti-loader-2"></i>';
+
+        setTimeout(()=>{
+          item.classList.remove('checking');
+          item.classList.add(c.ok?'ok':'fail');
+          icon.innerHTML=`<i class="ti ${c.ok?'ti-check':'ti-x'}"></i>`;
+          status.className='val-status '+(c.ok?'ok':'fail');
+          status.textContent=c.ok?'OK':'Error';
+          chainLog(c.nombre+' · '+(c.ok?'pasó':'falló'));
+
+          if(i===CONTROLES.length-1){
+            const res=$('val-result-final');
+            res.style.display='block';
+            res.innerHTML=`<div class="privacy-note"><i class="ti ti-database-check"></i>
+              <span><b>Validación completada.</b> Los 5 controles pasaron. El contrato está habilitado para ingresar a la base de datos.</span>
+            </div>`;
+            btn.innerHTML='<i class="ti ti-check"></i> Validación completada';
+          }
+        }, 700);
+      }, c.delay);
+    });
+  }
+
+  // ─────────────────────────────────────────
+  // MODAL generar contrato nuevo → MEJORAS
+  // ─────────────────────────────────────────
+
   $('btn-nuevo').addEventListener('click', ()=>{
+    pasoActual = 0;
     chainLog('Contrato anterior → estado deshabilitado');
-    setTimeout(()=> chainLog('Contrato nuevo generado · espera 3 firmas'), 700);
+    setTimeout(()=> chainLog('Nuevo contrato · iniciando protocolo de 5 pasos'), 700);
+
+    const protoHTML = buildProtocolo();
+    const valHTML   = buildValidacion();
+
     openModal('Generar contrato nuevo',
-      '<div style="font-size:13.5px; color:var(--text2); margin-bottom:14px;">El contrato anterior queda <b style="color:var(--text);">deshabilitado</b> on-chain (no se borra). El nuevo entra en vigencia con las tres firmas.</div>'+
-      '<div class="sign-row"><span>Inmobiliaria</span><span style="color:var(--accent-l);">Firmado &#10003;</span></div>'+
-      '<div class="sign-row"><span>Propietario</span><span style="color:var(--accent-l);">Firmado &#10003;</span></div>'+
-      '<div class="sign-row"><span>Inquilino</span><span style="color:var(--amber-tx);">Pendiente</span></div>');
+      `<div style="font-size:13px; color:var(--text2); margin-bottom:16px; padding:10px 13px; background:var(--surface2); border-radius:var(--radius-s);">
+        Para que este contrato tenga validez jurídica real, debe superar <b style="color:var(--text);">dos etapas</b>: el protocolo de firma y la validación previa a la base de datos.
+      </div>
+      ${protoHTML}
+      <div style="border-top:1px solid var(--border); margin:20px 0;"></div>
+      ${valHTML}`
+    );
+
+    activarBtnPaso(0);
+
+    const btnV = $('btn-validar');
+    if(btnV) btnV.addEventListener('click', ejecutarValidacion);
+  });
+
+  $('btn-incidente').addEventListener('click', ()=>{
+    openModal('Reportar incidente',
+      '<textarea placeholder="Describí el incidente (ej: humedad en el techo del living)"></textarea>'+
+      '<button class="act" id="env-inc"><i class="ti ti-upload"></i> Enviar y notificar a inmobiliaria</button>');
+    $('env-inc').addEventListener('click', ()=>{
+      chainLog('Incidente reportado por inquilino');
+      closeModal();
+      $('notif').style.display='flex';
+      $('notif-text').textContent='Nuevo incidente en Av. San Martín 1240, reportado por el inquilino.';
+    });
   });
 
   document.addEventListener('click', e=>{
